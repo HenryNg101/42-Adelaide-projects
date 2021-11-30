@@ -1,9 +1,28 @@
-void ft_is_negative(int n){
-    char result = (n >= 0) ? 'P' : 'N';
-    write(1, &result, 1);
-}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_is_negative.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: henguyen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/25 19:21:28 by henguyen          #+#    #+#             */
+/*   Updated: 2021/11/27 14:06:32 by henguyen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void main(void) {
-    ft_is_negative(100);
-    ft_is_negative(-100);
+#include <unistd.h>
+
+void	ft_is_negative(int n)
+{
+	char	result;
+
+	if (n >= 0)
+	{
+		result = 'P';
+	}
+	else
+	{
+		result = 'N';
+	}
+	write(1, &result, 1);
 }

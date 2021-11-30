@@ -1,27 +1,57 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: henguyen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/25 17:49:12 by henguyen          #+#    #+#             */
+/*   Updated: 2021/11/27 14:17:08 by henguyen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void ft_print_comb2(void) {
-    int count = 0;
-    for(char i='0'; i<='9'; i++){
-        for(char j='0'; j<='9'; j++){
-            for(char k='0'; k<='9'; k++){
-                for(char l='0'; l<='9'; l++){
-                    if ((i != k) || (j != l)){
-                        write(1, &i, 1);
-                        write(1, &j, 1);
-                        write(1, " ", 1);
-                        write(1, &k, 1);
-                        write(1, &l, 1);
-                        write(1, ", ", 2);
-                        count += 1;
-                    }
-                }
-            }
-        }
-    }
-    printf("\n%d", count);
+#include <unistd.h>
+
+void	write_number(int num)
+{
+	int		copy;
+	char	c;
+
+	copy = num;
+	if (num < 10)
+	{
+		write(1, "0", 1);
+	}
+	while (copy >= 10)
+	{
+		c = '0' + (int)(copy / 10);
+		write(1, &c, 1);
+		copy -= ((int)(copy / 10)) * 10;
+	}
+	c = '0' + copy;
+	write(1, &c, 1);
 }
 
-void main(void){
-    ft_print_comb2();
+void	ft_print_comb2(void)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < 100)
+	{
+		j = i + 1;
+		while (j < 100)
+		{
+			write_number(i);
+			write(1, " ", 1);
+			write_number(j);
+			if (i + 2 < 100)
+			{
+				write(1, ", ", 2);
+			}
+			j++;
+		}
+		i++;
+	}
 }

@@ -1,9 +1,25 @@
-void ft_print_alphabet(void) {
-    for(char a = 'a'; a >= 'z'; a++){
-        write(1, &a ,1);
-    }
-}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: henguyen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/25 18:46:47 by henguyen          #+#    #+#             */
+/*   Updated: 2021/11/27 14:04:15 by henguyen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void main(void) {
-    ft_print_alphabet();
+#include <unistd.h>
+
+void	ft_print_alphabet(void)
+{
+	char	a;
+
+	a = 'a';
+	while (a <= 'z')
+	{
+		write(1, &a, 1);
+		a++;
+	}
 }

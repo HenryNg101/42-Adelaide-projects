@@ -1,17 +1,28 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: henguyen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/27 13:17:23 by henguyen          #+#    #+#             */
+/*   Updated: 2021/11/27 14:17:52 by henguyen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void ft_putnbr(int nb){
-    char result[] = "";
-    int id = 0;
-    while (nb != 0){
-        char a = 48 + (nb % 10);
-        result = a + result;
-        nb /= 10;
-        id += 1;
-    }
-    write(1, &result, id);
-}
+#include <unistd.h>
 
-void main(void){
-    ft_putnbr(100);
+void	ft_putnbr(int nb)
+{
+	char	c[100];
+	int		count;
+
+	count = 99;
+	while (nb > 0)
+	{
+		c[count] = '0' + nb % 10;
+		count--;
+		nb = (int)(nb / 10);
+	}
+	write(1, &(c[count]), 100 - count);
 }

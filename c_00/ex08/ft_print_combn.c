@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
+/*   ft_print_combn.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: henguyen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 19:10:04 by henguyen          #+#    #+#             */
-/*   Updated: 2021/11/27 14:05:14 by henguyen         ###   ########.fr       */
+/*   Created: 2021/11/27 13:39:57 by henguyen          #+#    #+#             */
+/*   Updated: 2021/11/27 14:02:05 by henguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_reverse_alphabet(void)
+void	ft_print_combn(int n)
 {
-	char	a;
+	int max;
 
-	a = 'z';
-	while (a >= 'a')
+	max = 1;
+	while (n > 0)
 	{
-		write(1, &a, 1);
-		a--;
+		max *= 10;
+		n--;
 	}
+}
+
+int	main(void)
+{
+	return (0);
 }
