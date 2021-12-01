@@ -1,26 +1,27 @@
-#include <stdio.h>
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: henguyen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/30 16:52:14 by henguyen          #+#    #+#             */
+/*   Updated: 2021/11/30 17:15:59 by henguyen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char *ft_strupcase(char *str)
+char	*ft_strupcase(char *str)
 {
-    int     id;
+	int	id;
 
-    id = 0;
-    while(str[id] != '\0')
-    {
-        if (str[id] >= 'a' && str[id] <= 'z')
-        {
-            str[id] -= ' ';
-        }
-        id++;
-    }
-    return (str);
-}
-
-int main(void)
-{
-    char    a[100] = "AHjdws123";
-
-    printf("%s", ft_strupcase(a));
-    return (0);
+	id = 0;
+	while (str[id] != '\0')
+	{
+		if (str[id] >= 'a' && str[id] <= 'z')
+		{
+			str[id] -= ' ';
+		}
+		id++;
+	}
+	return (str);
 }

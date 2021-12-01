@@ -1,25 +1,25 @@
-//When do testing, don't use pointer to char, use char array instead, because pointer ones are not editable.
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: henguyen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/30 16:26:09 by henguyen          #+#    #+#             */
+/*   Updated: 2021/12/01 17:18:08 by henguyen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char *ft_strcpy(char *dest, char *src)
+char	*ft_strcpy(char *dest, char *src)
 {
-    int     id;
+	int	id;
 
-    id = 0;
-    while(src[id] != '\0')
-    {
-        dest[id] = src[id];
-        id++;
-    }
-    *(dest + id) = '\0';
-    return (dest);
-}
-
-int main(void)
-{
-    char a[] = "123";
-
-    ft_strcpy(a, "fefwefggu");
-    printf("%s", a);
-    return (0);
+	id = 0;
+	while (src[id] != '\0')
+	{
+		dest[id] = src[id];
+		id++;
+	}
+	*(dest + id) = '\0';
+	return (dest);
 }

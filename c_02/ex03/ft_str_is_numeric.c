@@ -1,25 +1,29 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: henguyen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/30 16:44:57 by henguyen          #+#    #+#             */
+/*   Updated: 2021/11/30 17:14:38 by henguyen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_str_is_numeric(char *str)
+int	ft_str_is_numeric(char *str)
 {
-    int check;
-    int id;
+	int	check;
+	int	id;
 
-    check = 1;
-    id = 0;
-    while(str[id] != '\0')
-    {
-        if (str[id] < '0' || str[id] > '9')
-        {
-            check = 0;
-        }
-        id++;
-    }
-    return (check);
-}
-
-int main(void)
-{
-    printf("%d", ft_str_is_numeric("3489124789"));
-    return (0);
+	check = 1;
+	id = 0;
+	while (str[id] != '\0')
+	{
+		if (str[id] < '0' || str[id] > '9')
+		{
+			check = 0;
+		}
+		id++;
+	}
+	return (check);
 }

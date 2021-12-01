@@ -1,29 +1,29 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: henguyen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/30 16:31:22 by henguyen          #+#    #+#             */
+/*   Updated: 2021/12/01 17:21:18 by henguyen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char *ft_strncpy(char *dest, char *src, int n)
+char	*ft_strncpy(char *dest, char *src, int n)
 {
-    int     id;
+	int	id;
 
-    id = 0;
-    while((src[id] != '\0') && (id < n))
-    {
-        *(dest + id) = src[id];
-        id++;
-    }
-    while(id < n)
-    {
-        *(dest + id) = '\0';
-        id++;
-    }
-    *(dest + id) = '\0';
-    return (dest);
-}
-
-int main(void)
-{
-    char a[] = "123";
-
-    ft_strncpy(a, "fefwefggu", 6);
-    printf("%s", a);
-    return (0);
+	id = 0;
+	while ((src[id] != '\0') && (id < n))
+	{
+		*(dest + id) = src[id];
+		id++;
+	}
+	while (id < n)
+	{
+		dest[id] = '\0';
+		id++;
+	}
+	return (dest);
 }

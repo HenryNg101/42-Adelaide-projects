@@ -1,37 +1,36 @@
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: henguyen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/30 16:57:59 by henguyen          #+#    #+#             */
+/*   Updated: 2021/11/30 17:16:58 by henguyen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-    unsigned int     id;
+	unsigned int	id;
 
-    id = 0;
-    while((src[id] != '\0') && (id < size))
-    {
-        if (id + 1 < size)
-        {
-            *(dest + id) = src[id];
-            id++;
-        }
-        else
-        {
-            break;
-        }
-    }
-    *(dest + id) = '\0';
-    while (src[id] != '\0')
-    {
-        id++;
-    }
-    return (id);
-}
-
-int main(void)
-{
-    char    a[100] = "";
-    unsigned int     b;
-
-    b = ft_strlcpy(a, "Hello there, Venus", 19);
-    printf("%s\n%d", a, b);
-    return (0);
+	id = 0;
+	while ((src[id] != '\0') && (id < size))
+	{
+		if (id + 1 < size)
+		{
+			*(dest + id) = src[id];
+			id++;
+		}
+		else
+		{
+			break ;
+		}
+	}
+	*(dest + id) = '\0';
+	while (src[id] != '\0')
+	{
+		id++;
+	}
+	return (id);
 }

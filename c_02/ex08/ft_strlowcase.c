@@ -1,26 +1,27 @@
-#include <stdio.h>
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: henguyen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/30 16:53:47 by henguyen          #+#    #+#             */
+/*   Updated: 2021/11/30 17:16:12 by henguyen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char *ft_strlowcase(char *str)
+char	*ft_strlowcase(char *str)
 {
-    int     id;
+	int	id;
 
-    id = 0;
-    while(str[id] != '\0')
-    {
-        if (str[id] >= 'A' && str[id] <= 'Z')
-        {
-            str[id] += ' ';
-        }
-        id++;
-    }
-    return (str);
-}
-
-int main(void)
-{
-    char    a[100] = "AHjdws123";
-
-    printf("%s", ft_strlowcase(a));
-    return (0);
+	id = 0;
+	while (str[id] != '\0')
+	{
+		if (str[id] >= 'A' && str[id] <= 'Z')
+		{
+			str[id] += ' ';
+		}
+		id++;
+	}
+	return (str);
 }

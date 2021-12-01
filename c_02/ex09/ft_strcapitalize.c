@@ -1,31 +1,76 @@
-#include <stdio.h>
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: henguyen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/30 16:55:52 by henguyen          #+#    #+#             */
+/*   Updated: 2021/12/01 17:29:54 by henguyen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char *ft_strcapitalize(char *str)
+int	is_capital(char a)
 {
-    int     id;
-    char    prev;
-
-    id = 0;
-    while(str[id] != '\0')
-    {
-        if (str[id] >= 'a' && str[id] <= 'z')
-        {
-            if (prev == ' ' || id == 0)
-            {
-                str[id] -= ' ';
-            }
-        }
-        prev = str[id];
-        id++;
-    }
-    return (str);
+	if (a >= 'a' && a <= 'z')
+	{
+		return (0);
+	}
+	else if (a >= 'A' && a <= 'Z')
+	{
+		return (1);
+	}
+	else
+	{
+		return (-1);
+	}
 }
 
-int main(void)
+int	is_alphanumeric(char a)
 {
-    char    a[100] = "AHj dws fdjkbqj ? 123";
+	int	check;
 
-    printf("%s", ft_strcapitalize(a));
-    return (0);
+	check = 0;
+	if (a >= 'a' && a <= 'z')
+	{
+		check = 1;
+	}
+	if (a >= 'A' && a <= 'Z')
+	{
+		check = 1;
+	}
+	if (a >= '0' && a <= '9')
+	{
+		check = 1;
+	}
+	return (check);
+}
+
+char	*ft_strcapitalize(char *str)
+{
+	int		id;
+	char	prev;
+
+	id = 0;
+	prev = ' ';
+	while (str[id] != '\0')
+	{
+		if (is_capital(str[id]) == 0)
+		{
+			if (is_alphanumeric(prev) == 0 || id == 0)
+			{
+				str[id] -= ' ';
+			}
+		}
+		if (is_capital(str[id]) == 1)
+		{
+			if (is_alphanumeric(prev) == 1)
+			{
+				str[id] += ' ';
+			}
+		}
+		prev = str[id];
+		id++;
+	}
+	return (str);
 }
