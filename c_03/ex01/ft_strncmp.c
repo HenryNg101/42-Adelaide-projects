@@ -1,40 +1,56 @@
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: henguyen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/01 17:07:28 by henguyen          #+#    #+#             */
+/*   Updated: 2021/12/02 16:08:17 by henguyen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_strncmp(char *s1, char *s2, unsigned int n)
+int	final_check(char *s1, char *s2, unsigned int id, unsigned int limit)
 {
-    unsigned int id;
-
-    id = 0;
-    while((s1[id] != '\0' && s2[id] != '\0') && id < n)
-    {
-        if (s1[id] != s2[id])
-        {
-            if (s1[id] < s2[id])
-            {
-                return (-1);
-            }
-            else if (s1[id] > s2[id])
-            {
-                return (1);
-            }
-        }
-        id++;
-    }
-    return (0);
+	if (id == limit)
+	{
+		return (0);
+	}
+	else if (s1[id] == '\0' && s2[id] == '\0')
+	{
+		return (0);
+	}
+	else if (s1[id] != '\0')
+	{
+		return (1);
+	}
+	else
+	{
+		return (-1);
+	}
 }
 
-
-int main(void)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-    printf("%d\n", strncmp("123", "40", 2));
-    printf("%d\n", strncmp("1234", "456", 1));
-    printf("%d\n", strncmp("123", "123", 1));
-    printf("%d\n\n", strncmp("129", "123", 1));
+	unsigned int	id;
+	int				final;
 
-    printf("%d\n", ft_strncmp("123", "40", 2));
-    printf("%d\n", ft_strncmp("1234", "456", 1));
-    printf("%d\n", ft_strncmp("123", "123", 1));
-    printf("%d\n", ft_strncmp("129", "123", 1));
-    return (0);
+	id = 0;
+	while ((s1[id] != '\0' && s2[id] != '\0') && id < n)
+	{
+		if (s1[id] != s2[id])
+		{
+			if (s1[id] < s2[id])
+			{
+				return (-1);
+			}
+			else if (s1[id] > s2[id])
+			{
+				return (1);
+			}
+		}
+		id++;
+	}
+	final = final_check(s1, s2, id, n);
+	return (final);
 }
